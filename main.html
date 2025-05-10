@@ -9,8 +9,22 @@
 <body>	
 	<script>
 		function secondHighest(arr) {
-			//Write your code here
-			
+			if (arr.length < 2) return -Infinity;
+
+			let max = -Infinity;
+			let second = -Infinity;
+
+			for (let num of arr) {
+				num = parseInt(num); // Ensure the input is treated as integers
+				if (num > max) {
+					second = max;
+					max = num;
+				} else if (num < max && num > second) {
+					second = num;
+				}
+			}
+
+			return second === -Infinity ? -Infinity : second;
 		}
 
 		function Main() {
@@ -21,11 +35,11 @@
 			}
 			alert(secondHighest(arr));
 		}
+
 		Main();
 	</script>
 
-    <script type="text/javascript" src="./script.js">
-</script>
+    <script type="text/javascript" src="./script.js"></script>
 
 </body>
 
